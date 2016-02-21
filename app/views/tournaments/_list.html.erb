@@ -4,11 +4,15 @@
     <tr>
       <th>Title</th>
       <th>Country</th>
+      <th>Location</th>
+      <th>Link</th>
     </tr>
     <% tournaments.each do |tournament| %>
       <tr>
         <td><%= link_to(tournament.title, tournament_path(tournament)) %></td>
         <td><%= tournament.country_name %></td>
+        <td><%= tournament.location %></td>
+        <td><%= link_to tournament.link %></td>
       </tr>
     <% end %>
   </table>

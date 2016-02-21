@@ -24,11 +24,12 @@ class Tournament < ActiveRecord::Base
     # configure number of OR conditions for provision
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
-    num_or_conditions = 1
+    num_or_conditions = 2
     where(
       terms.map {
         or_clauses = [
-          "LOWER(tournaments.title) LIKE ?"
+          "LOWER(tournaments.title) LIKE ?",
+          "LOWER(tournaments.location) LIKE ?"
         ].join(' OR ')
         "(#{ or_clauses })"
       }.join(' AND '),
@@ -46,6 +47,8 @@ class Tournament < ActiveRecord::Base
       order("LOWER(tournaments.title) #{ direction }")
     when /^country_name_/
       order("LOWER(countries.name) #{ direction }").includes(:country)
+    when /^location_/
+      order("LOWER(tournaments.location) #{ direction }")
     else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end
