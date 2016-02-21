@@ -1,0 +1,16 @@
+<div id="filterrific_results">
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Country</th>
+    </tr>
+    <% tournaments.each do |tournament| %>
+      <tr>
+        <td><%= link_to(tournament.title, tournament_path(tournament)) %></td>
+        <td><%= tournament.country_name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
