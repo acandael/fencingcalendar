@@ -1,0 +1,9 @@
+/Users/acandael/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20160221-25527-15creps.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
