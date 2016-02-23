@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221144636) do
+ActiveRecord::Schema.define(version: 20160221155948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20160221144636) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tournament_weapons", force: :cascade do |t|
+    t.integer "tournament_id"
+    t.integer "weapon_id"
+  end
+
+  add_index "tournament_weapons", ["tournament_id"], name: "index_tournament_weapons_on_tournament_id", using: :btree
+  add_index "tournament_weapons", ["weapon_id"], name: "index_tournament_weapons_on_weapon_id", using: :btree
 
   create_table "tournaments", force: :cascade do |t|
     t.string   "title"
@@ -32,4 +40,10 @@ ActiveRecord::Schema.define(version: 20160221144636) do
     t.datetime "updated_at"
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+  end
+
+  add_foreign_key "tournament_weapons", "tournaments"
+  add_foreign_key "tournament_weapons", "weapons"
 end

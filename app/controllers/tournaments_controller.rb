@@ -6,7 +6,8 @@ class TournamentsController < ApplicationController
       params[:filterrific],
       :select_options => {
         sorted_by: Tournament.options_for_sorted_by,
-        with_country_id: Country.options_for_select
+        with_country_id: Country.options_for_select,
+        with_any_weapon_ids: Weapon.options_for_select
       }
     ) or return
     @tournaments = @filterrific.find.page(params[:page])

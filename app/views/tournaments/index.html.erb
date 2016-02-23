@@ -26,6 +26,14 @@
     ) %>
   </div>
   <div>
+    Weapon
+    <%= f.select(
+      :with_any_weapon_ids,
+      @filterrific.select_options[:with_any_weapon_ids],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
   </div>

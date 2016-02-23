@@ -5,12 +5,16 @@ class Tournament < ActiveRecord::Base
                 sorted_by
                 search_query
                 with_country_id
+                with_weapon_id
               ]
 
   # default for will_paginate
   self.per_page = 10
 
   belongs_to :country
+
+  has_many :tournament_weapons
+  has_many :weapons, :through => :tournament_weapons
 
   scope :search_query, lambda { |query|
     return nil  if query.blank?
@@ -57,7 +61,22 @@ class Tournament < ActiveRecord::Base
     where(:country_id => [*country_ids])
   }
 
+  scope :with_any_weapon_ids, lambda{ |weapon_ids|
+    # get a reference to the join table
+    weapons_assignments = TournamentWeapon.arel_table
+    # get a reference to the filtered table
+    tournaments = Tournament.arel_table
+    # let AREL generate a complex SQL query
+    where(
+      TournamentWeapon \
+        .where(tournament_weapons[:tournament_id].eq(tournaments[:id])) \
+        .where(tournament_weapons[:weapon_id].in([*weapon_ids].map(&:to_i))) \
+        .exists
+    )
+  }
+
   delegate :name, :to => :country, :prefix => true
+  
 
   def self.options_for_sorted_by
     [
