@@ -26,6 +26,14 @@
     ) %>
   </div>
   <div>
+    Category
+    <%= f.select(
+      :with_category_id,
+      @filterrific.select_options[:with_category_id],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
     Weapon
     <%= f.select(
       :with_any_weapon_ids,

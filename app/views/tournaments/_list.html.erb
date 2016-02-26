@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Country</th>
       <th>Location</th>
+      <th>Category</th>
       <th>Weapon</th>
       <th>Link</th>
     </tr>
@@ -13,6 +14,7 @@
         <td><%= link_to(tournament.title, tournament_path(tournament)) %></td>
         <td><%= tournament.country_name %></td>
         <td><%= tournament.location %></td>
+        <td><%= tournament.category.name %></td>
         <td>
           <% tournament.weapons.each do |weapon| %>
           <%= weapon.name %>

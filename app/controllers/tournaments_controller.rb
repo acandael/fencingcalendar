@@ -7,6 +7,7 @@ class TournamentsController < ApplicationController
       :select_options => {
         sorted_by: Tournament.options_for_sorted_by,
         with_country_id: Country.options_for_select,
+        with_category_id: Category.options_for_select,
         with_any_weapon_ids: Weapon.options_for_select
       }
     ) or return

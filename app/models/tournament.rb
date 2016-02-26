@@ -5,6 +5,7 @@ class Tournament < ActiveRecord::Base
                 sorted_by
                 search_query
                 with_country_id
+                with_category_id
                 with_any_weapon_ids
               ]
 
@@ -12,9 +13,11 @@ class Tournament < ActiveRecord::Base
   self.per_page = 10
 
   belongs_to :country
+  belongs_to :category
 
   has_many :tournament_weapons
   has_many :weapons, :through => :tournament_weapons
+
 
   scope :search_query, lambda { |query|
     return nil  if query.blank?
@@ -59,6 +62,10 @@ class Tournament < ActiveRecord::Base
   }
   scope :with_country_id, lambda { |country_ids|
     where(:country_id => [*country_ids])
+  }
+
+  scope :with_category_id, lambda { |category_ids|
+    where(:category_id => [*category_ids])
   }
 
   scope :with_any_weapon_ids, lambda{ |weapon_ids|
