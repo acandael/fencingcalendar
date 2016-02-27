@@ -2,6 +2,7 @@
   <header>
     <h1>Tournaments</h1>
   </header>
+  <%= button_to "Add Tournament", new_admin_tournament_path, method: "get" %>
   <table>
     <thead>
       <tr>
@@ -15,13 +16,18 @@
     <tbody>
       <% @tournaments.each do |tournament| %>
         <tr>
-          <td><%= tournament.title %></td>
+          <td><%= link_to tournament.title, admin_tournament_path(tournament) %></td>
           <td><%= tournament.country.name %></td>
           <td><%= tournament.location %></td>
           <td><%= tournament.category.name %></td>
           <td><% tournament.weapons.each do |weapon| %>
             <%= weapon.name %>
           <% end %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_tournament_path(tournament) %>
+            <%= link_to "Delete", admin_tournament_path(tournament), method: :delete,
+              data: { confirm: "Are you sure you want to delete this project?" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

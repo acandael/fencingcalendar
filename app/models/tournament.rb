@@ -15,7 +15,7 @@ class Tournament < ActiveRecord::Base
   belongs_to :country
   belongs_to :category
 
-  has_many :tournament_weapons
+  has_many :tournament_weapons, dependent: :delete_all
   has_many :weapons, :through => :tournament_weapons
 
 

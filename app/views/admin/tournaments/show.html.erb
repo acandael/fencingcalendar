@@ -1,0 +1,21 @@
+<nav>
+  <ul>
+    <li><%= link_to "Tournaments", admin_tournaments_path %></li>
+  </ul>
+</nav>
+<article>
+  <header>
+    <h1><%= @tournament.title %></h1>
+  </header>
+  <section>
+    <p>Country: <%= @tournament.country.name %><br>
+    Location: <%= @tournament.location %></p>
+  </section>
+  <p>Category: <%= @tournament.category.name %><br></p>
+  <p>Weapons:
+    <% @tournament.weapons.each do |weapon| %>
+      <%= weapon.name %>
+    <% end %>
+  </p>
+  <p>Website: <%= link_to @tournament.link %></p>
+</article>
