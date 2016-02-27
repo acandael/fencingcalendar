@@ -11,13 +11,19 @@
         <th>Location</th>
         <th>Category</th>
         <th>Weapon</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <% @tournaments.each do |tournament| %>
         <tr>
           <td><%= link_to tournament.title, admin_tournament_path(tournament) %></td>
-          <td><%= tournament.country.name %></td>
+          <td>
+            <% if tournament.country_id %>
+              <%= tournament.country.name %></td>
+            <% else %>
+              not set
+            <% end %>
           <td><%= tournament.location %></td>
           <td><%= tournament.category.name %></td>
           <td><% tournament.weapons.each do |weapon| %>
