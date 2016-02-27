@@ -1,0 +1,28 @@
+<article>
+  <header>
+    <h1><%= @tournament.title %></h1>
+  </header>
+  <section>
+    <p>Country: <%= @tournament.country.name %><br>
+    Location: <%= @tournament.location %></p>
+  </section>
+  <p><% @tournament.weapons.each do |weapon| %>
+    <%= weapon.name %>
+  <% end %>
+    <br>
+    Category: <%= @tournament.category.name %>
+  </p>
+  <p>Organization: 
+  <% if @tournament.organization.link %>
+    <%= link_to @tournament.organization.name, @tournament.organization.link %>
+  <% else %>
+    <%= @tournament.organization.name %>
+  <% end %>
+  </p>
+  <% if @tournament.link %>
+    <p>
+    Link: <%= link_to @tournament.link, @tournament.link %>
+    </p>
+  <% end %>
+  
+</article>

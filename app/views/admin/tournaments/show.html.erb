@@ -12,7 +12,7 @@
     Location: <%= @tournament.location %></p>
   </section>
   <p>Category: <%= @tournament.category.name %><br></p>
-  <p>Organisation: <%= @tournament.organization.name %></p>
+  <p>Organisation: <%= link_to @tournament.organization.name, admin_organization_path(@tournament.organization) %></p>
   <p>Weapons:
     <% @tournament.weapons.each do |weapon| %>
       <%= weapon.name %>
