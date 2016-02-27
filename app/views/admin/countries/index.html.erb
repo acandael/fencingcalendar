@@ -1,0 +1,23 @@
+<div id="countries">
+  <header>
+    <h1>Countries</h1>
+  </header>
+  <%= button_to "Add Country", new_admin_country_path, method: "get" %>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <% @countries.each do |country| %>
+        <tr>
+          <td><%= link_to country.name, admin_country_path(country) %></td>
+          <td><%= link_to "Edit", edit_admin_country_path(country) %>&nbsp;
+              <%= link_to "Delete", admin_country_path(country), method: :delete,
+                data: { confirm: "Are you sure you want to delete this country?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
