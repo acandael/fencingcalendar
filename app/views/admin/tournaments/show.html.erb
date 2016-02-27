@@ -12,10 +12,12 @@
     Location: <%= @tournament.location %></p>
   </section>
   <p>Category: <%= @tournament.category.name %><br></p>
+  <p>Organisation: <%= @tournament.organization.name %></p>
   <p>Weapons:
     <% @tournament.weapons.each do |weapon| %>
       <%= weapon.name %>
     <% end %>
   </p>
+
   <p>Website: <%= link_to @tournament.link %></p>
 </article>

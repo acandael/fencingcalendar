@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
     resources :tournaments
     resources :countries
+    resources :organizations
   end
 end

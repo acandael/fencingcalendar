@@ -5,6 +5,7 @@
   <%= f.input :location %>
   <%= f.association :category %>
   <%= f.association :weapons, as: :check_boxes %>
+  <%= f.association :organization %>
   <%= f.input :link %>
   <%= f.button :submit %>
 <% end %>

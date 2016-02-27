@@ -43,7 +43,7 @@ class Admin::TournamentsController < Admin::ApplicationController
   private
 
   def tournament_params
-    params.require(:tournament).permit(:title, :country_id, :location, :category_id, :link, :weapon_ids => [])
+    params.require(:tournament).permit(:title, :country_id, :location, :category_id, :link, :organization_id, :weapon_ids => [])
   end
 
 end

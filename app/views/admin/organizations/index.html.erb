@@ -1,0 +1,25 @@
+<div id="organizations">
+  <header>
+    <h1>Organizations</h1>
+  </header>
+  <%= button_to "Add Organization", new_admin_organization_path, method: "get" %>
+  <table>
+    <thead>
+      <tr>
+      <th>Name</th>
+      <th>Link</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @organizations.each do |organization| %>
+        <tr>
+          <td><%= link_to organization.name, admin_organization_path(organization) %></td>
+          <td><%= link_to organization.link, organization.link %></td>
+          <td><%= link_to "Edit", edit_admin_organization_path(organization) %>&nbsp;<%= link_to "Delete", admin_organization_path(organization), method: :delete,
+         data: { confirm: "Are you sure you want to delete this organization?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

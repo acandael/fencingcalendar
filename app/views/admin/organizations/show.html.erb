@@ -1,0 +1,19 @@
+<nav>
+  <ul>
+    <li><%= link_to "Organizations", admin_organizations_path %></li>
+  </ul>
+</nav>
+<article>
+  <header>
+    <h1><%= @organization.name %></h1>
+  </header>
+  <p>Link: <%= link_to @organization.link, @organization.link %></p>
+  <section>
+    <h2>Tournaments</h2>
+    <ul>
+    <% @organization.tournaments.each do |tournament| %>
+      <li><%= link_to tournament.title, admin_tournament_path(tournament) %></li> 
+    <% end %>
+  </ul>
+  </section>
+</article>
