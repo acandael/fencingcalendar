@@ -1,9 +1,4 @@
 <div id="tournaments">
-<nav>
-  <ul>
-    <li><%= link_to "Tournaments", tournaments_path %></li>
-  </ul>
-</nav>
 <article>
   <header>
     <h1><%= @tournament.title %></h1>
@@ -27,10 +22,12 @@
     Category: <%= @tournament.category.name %>
   </p>
   <p>Organization: 
-  <% if @tournament.organization.link %>
-    <%= link_to @tournament.organization.name, @tournament.organization.link %>
-  <% else %>
-    <%= @tournament.organization.name %>
+  <% if @tournament.organization %>
+    <% if @tournament.organization.link %>
+      <%= link_to @tournament.organization.name, @tournament.organization.link %>
+    <% else %>
+      <%= @tournament.organization.name %>
+    <% end %>
   <% end %>
   </p>
   <% if @tournament.link %>

@@ -18,7 +18,15 @@
       <p>Venue: <%= simple_format(@tournament.venue) %></p>
     </section>
     <p>Category: <%= @tournament.category.name %><br></p>
-    <p>Organisation: <%= link_to @tournament.organization.name, admin_organization_path(@tournament.organization) %></p>
+  <p>Organization: 
+  <% if @tournament.organization %>
+    <% if @tournament.organization.link %>
+      <%= link_to @tournament.organization.name, @tournament.organization.link %>
+    <% else %>
+      <%= @tournament.organization.name %>
+    <% end %>
+  <% end %>
+  </p>
     <p>Weapons:
     <% @tournament.weapons.each do |weapon| %>
       <%= weapon.name %>
