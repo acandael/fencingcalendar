@@ -31,3 +31,13 @@ div#tournaments, div#countries, div#organizations {
 select.date {
   display: inline;
 }
+
+form.simple_form {
+  @include span-columns(6);
+}
+
+label.collection_check_boxes {
+  display: inline;
+  margin-right: 1em;
+}
+
