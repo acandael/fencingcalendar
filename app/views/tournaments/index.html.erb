@@ -1,3 +1,4 @@
+<div id="tournaments">
 <h1>Tournaments</h1>
 
 <%#
@@ -9,7 +10,7 @@
   * sets form_for options like :url, :method and input name prefix
 %>
 <%= form_for_filterrific @filterrific do |f| %>
-  <div>
+  <div class="filterrific">
     Search
     <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
     <%= f.text_field(
@@ -17,7 +18,7 @@
       class: 'filterrific-periodically-observed'
     ) %>
   </div>
-  <div>
+  <div class="filterrific">
     Country
     <%= f.select(
       :with_country_id,
@@ -25,15 +26,15 @@
       { include_blank: '- Any -' }
     ) %>
   </div>
-  <div>
+  <div class="filterrific">
     Category
     <%= f.select(
       :with_category_id,
       @filterrific.select_options[:with_category_id],
       { include_blank: '- Any -' }
     ) %>
-  </div>
-  <div>
+  </div >
+  <div class="filterrific">
     Weapon
     <%= f.select(
       :with_any_weapon_ids,
@@ -41,7 +42,7 @@
       { include_blank: '- Any -' }
     ) %>
   </div>
-  <div>
+  <div class="filterrific">
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
   </div>
@@ -58,3 +59,4 @@
   partial: 'tournaments/list',
   locals: { tournaments: @tournaments }
 ) %>
+</div>

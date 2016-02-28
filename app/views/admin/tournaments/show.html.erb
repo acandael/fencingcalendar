@@ -8,8 +8,8 @@
     <h1><%= @tournament.title %></h1>
   </header>
   <section class="date">
-    <p>Startdate: <%= @tournament.start_date.strftime("%d/%m/%Y") %><br>
-    Enddate: <%= @tournament.end_date.strftime("%d/%m/%Y") %>
+    <p>Startdate: <%= @tournament.start_date.strftime("%d/%m/%Y") if @tournament.start_date %><br>
+    Enddate: <%= @tournament.end_date.strftime("%d/%m/%Y") if @tournament.end_date %>
   </section>
   <section>
     <p>Country: <%= @tournament.country.name %><br>

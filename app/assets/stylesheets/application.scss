@@ -16,6 +16,18 @@
 @import "base/base";
 @import "neat";
 
+@import "partials/header";
+
+div#tournaments {
+  @include outer-container;
+  margin-top: 2rem;
+}
+
+.filterrific {
+  float: left;
+  margin-left: 1em;
+}
+
 select.date {
   display: inline;
 }
