@@ -1,11 +1,2 @@
 <h1>Create Tournament</h1>
-<%= simple_form_for([:admin, @tournament]) do |f| %>
-  <%= f.input :title %>
-  <%= f.association :country %>
-  <%= f.input :location %>
-  <%= f.association :category %>
-  <%= f.association :weapons, as: :check_boxes %>
-  <%= f.association :organization %>
-  <%= f.input :link %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'form', tournament: @tournament %>

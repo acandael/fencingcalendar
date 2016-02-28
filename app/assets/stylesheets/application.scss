@@ -15,3 +15,7 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
+
+select.date {
+  display: inline;
+}
