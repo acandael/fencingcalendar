@@ -16,8 +16,11 @@
   <section>
     <p>Country: <%= @tournament.country.name %><br>
     Location: <%= @tournament.location %></p>
+    <p>Venue: <%= simple_format(@tournament.venue) %></p>
   </section>
-  <p><% @tournament.weapons.each do |weapon| %>
+  <p>
+  Weapons:
+  <% @tournament.weapons.each do |weapon| %>
     <%= weapon.name %>
   <% end %>
     <br>

@@ -15,6 +15,7 @@
     <section>
       <p>Country: <%= @tournament.country.name %><br>
       Location: <%= @tournament.location %></p>
+      <p>Venue: <%= simple_format(@tournament.venue) %></p>
     </section>
     <p>Category: <%= @tournament.category.name %><br></p>
     <p>Organisation: <%= link_to @tournament.organization.name, admin_organization_path(@tournament.organization) %></p>
