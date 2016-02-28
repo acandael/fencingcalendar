@@ -30,7 +30,7 @@
             <%= weapon.name %>
           <% end %></td>
           <td>
-            <%= link_to "Edit", edit_admin_tournament_path(tournament) %>
+            <%= link_to "Edit", edit_admin_tournament_path(tournament) %>&nbsp;
             <%= link_to "Delete", admin_tournament_path(tournament), method: :delete,
               data: { confirm: "Are you sure you want to delete this tournament?" } %>
           </td>
