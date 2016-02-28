@@ -2,9 +2,5 @@
   <header>
     <h1>Edit Organization</h1>
   </header>
-  <%= simple_form_for([:admin, @organization]) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :link %>
-    <%= f.button :submit %>
-  <% end %>
+  <%= render 'form', organization: @organization %>
 </div>
