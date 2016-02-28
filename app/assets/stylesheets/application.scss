@@ -18,7 +18,7 @@
 
 @import "partials/header";
 
-div#tournaments {
+div#tournaments, div#countries, div#organizations {
   @include outer-container;
   margin-top: 2rem;
 }
