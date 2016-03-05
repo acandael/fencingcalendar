@@ -54,7 +54,7 @@ class Tournament < ActiveRecord::Base
     when /^title_/
       order("LOWER(tournaments.title) #{ direction }")
     when /^country_name_/
-      order("LOWER(countries.name) #{ direction }").includes(:country)
+      order("LOWER(countries.name) #{ direction }").includes(:country).references(:country)
     when /^location_/
       order("LOWER(tournaments.location) #{ direction }")
     else

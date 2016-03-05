@@ -17,6 +17,7 @@
 @import "neat";
 
 @import "partials/header";
+@import "partials/search";
 
 div#tournaments, div#countries, div#organizations {
   @include outer-container;

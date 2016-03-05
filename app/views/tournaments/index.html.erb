@@ -10,48 +10,52 @@
   * sets form_for options like :url, :method and input name prefix
 %>
 <%= form_for_filterrific @filterrific do |f| %>
-  <div class="filterrific">
-    Search
-    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-    <%= f.text_field(
-      :search_query,
-      class: 'filterrific-periodically-observed'
-    ) %>
+  <div class="search-tools">
+    <div class="filters">
+      <div class="filter">
+        Search
+        <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+        <%= f.text_field(
+          :search_query,
+          class: 'filterrific-periodically-observed'
+        ) %>
+    </div>
+    <div class="filter">
+      Country
+      <%= f.select(
+        :with_country_id,
+        @filterrific.select_options[:with_country_id],
+        { include_blank: '- Any -' }
+      ) %>
+    </div>
+    <div class="filter">
+      Category
+      <%= f.select(
+        :with_category_id,
+        @filterrific.select_options[:with_category_id],
+        { include_blank: '- Any -' }
+      ) %>
+    </div >
+    <div class="filter">
+      Weapon
+      <%= f.select(
+        :with_any_weapon_ids,
+        @filterrific.select_options[:with_any_weapon_ids],
+        { include_blank: '- Any -' }
+      ) %>
+    </div>
+    <div class="filter">
+      Sorted by
+      <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+    </div>
+    <div class="filter trigger">
+      <%= link_to(
+        'Reset filters',
+        reset_filterrific_url,
+      ) %>
+    </div>
   </div>
-  <div class="filterrific">
-    Country
-    <%= f.select(
-      :with_country_id,
-      @filterrific.select_options[:with_country_id],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div class="filterrific">
-    Category
-    <%= f.select(
-      :with_category_id,
-      @filterrific.select_options[:with_category_id],
-      { include_blank: '- Any -' }
-    ) %>
-  </div >
-  <div class="filterrific">
-    Weapon
-    <%= f.select(
-      :with_any_weapon_ids,
-      @filterrific.select_options[:with_any_weapon_ids],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div class="filterrific">
-    Sorted by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-  </div>
-  <div>
-    <%= link_to(
-      'Reset filters',
-      reset_filterrific_url,
-    ) %>
-  </div>
+</div>
   <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
 
