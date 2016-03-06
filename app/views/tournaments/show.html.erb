@@ -4,36 +4,36 @@
     <h1><%= @tournament.title %></h1>
   </header>
   <section class="date">
-    <p>Startdate: <%= @tournament.start_date.strftime("%d/%m/%Y") if @tournament.start_date %><br>
-    Enddate: <%= @tournament.end_date.strftime("%d/%m/%Y") if @tournament.end_date %><br>
-    Closingdate: <%= @tournament.end_date.strftime("%d/%m/%Y") if @tournament.closing_date %>
+    <p><strong>Startdate:</strong> <%= @tournament.start_date.strftime("%d/%m/%Y") if @tournament.start_date %><br>
+    <strong>Enddate:</strong> <%= @tournament.end_date.strftime("%d/%m/%Y") if @tournament.end_date %><br>
+    <strong>Closingdate:</strong> <%= @tournament.end_date.strftime("%d/%m/%Y") if @tournament.closing_date %>
   </section>
   <section>
-    <p>Country: <%= @tournament.country.name %><br>
-    Location: <%= @tournament.location %></p>
-    <p>Venue: <%= simple_format(@tournament.venue) %></p>
+    <p><strong>Country:</strong> <%= @tournament.country.name %><br>
+    <strong>Location:</strong> <%= @tournament.location %></p>
+    <% if @tournament.venue.present? %>
+      <strong>Venue:</strong> <%= simple_format(@tournament.venue) %>
+    <% end %>
   </section>
   <p>
-  Weapons:
+  <strong>Weapons:</strong>
   <% @tournament.weapons.each do |weapon| %>
     <%= weapon.name %>
   <% end %>
     <br>
-    Category: <%= @tournament.category.name %>
+    <strong>Category:</strong> <%= @tournament.category.name %>
   </p>
-  <p>Organization: 
-  <% if @tournament.organization %>
-    <% if @tournament.organization.link %>
+  <% if @tournament.organization.present? %>
+    <p><strong>Organization:</strong>
+    <% if @tournament.organization.link.present? %>
       <%= link_to @tournament.organization.name, @tournament.organization.link %>
     <% else %>
       <%= @tournament.organization.name %>
     <% end %>
-  <% end %>
-  </p>
-  <% if @tournament.link %>
-    <p>
-    Link: <%= link_to @tournament.link, @tournament.link %>
     </p>
+  <% end %>
+  <% if @tournament.link.present? %>
+    <p><strong>Link:</strong> <%= link_to @tournament.link, @tournament.link %></p>
   <% end %>
   
 </article>
