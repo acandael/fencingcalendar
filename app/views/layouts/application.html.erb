@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fencingcalendar</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
 <div class="wrapper-for-content-outside-of-footer">
-<%= render 'layouts/header' %>
-<div id="wrapper">
-  <% if flash[:notice] %>
-    <p class="flash-notice">
-  <%= flash[:notice] %>
-  </p>
-<% end %>
-  <% if flash[:alert] %>
-    <p class="flash-alert">
-  <%= flash[:alert] %>
-  </p>
-<% end %>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
+  <%= render "layouts/header" %>
+  <%= yield %>
 </div>
-<%= yield %>
-</div>
-<%= render 'layouts/footer' %>
+  <%= render "layouts/footer" %>
 </body>
 </html>

@@ -19,6 +19,7 @@
 @import "partials/header";
 @import "partials/footer";
 @import "partials/search";
+@import "partials/session";
 
 div#tournaments, div#countries, div#organizations {
   @include outer-container;
@@ -41,5 +42,13 @@ form.simple_form {
 label.collection_check_boxes {
   display: inline;
   margin-right: 1em;
+}
+
+h1 {
+  font-size: 3.375em;
+}
+
+h2 {
+  font-size: 2.25em;
 }
 

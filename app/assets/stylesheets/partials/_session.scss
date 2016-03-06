@@ -1,0 +1,9 @@
+#clearance {
+  @include outer-container;
+
+  margin-top: 3em;
+
+  form {
+    @include span-columns(5);
+  }
+}
