@@ -4,6 +4,10 @@ class Admin::CountriesController < Admin::ApplicationController
     @countries = Country.all.order(name: :asc)
   end
 
+  def show
+    @country = Country.find(params[:id])
+  end
+
   def new
     @country = Country.new
   end
