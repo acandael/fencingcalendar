@@ -6,4 +6,10 @@
   form {
     @include span-columns(5);
   }
+
+  fieldset {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+    padding: 3em;
+  }
 }
